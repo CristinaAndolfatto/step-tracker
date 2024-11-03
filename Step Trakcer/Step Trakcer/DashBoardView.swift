@@ -81,7 +81,7 @@ struct DashBoardView: View {
             .padding()
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self) { metric in
-                Text(metric.title)
+                HealthDataListView(selectedStat: $selectedStat, metric: metric)
             }
         }
         .tint(isStepSelected ? .pink : .indigo)

@@ -12,6 +12,7 @@
 		3146648C2CCE88D300C51304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3146648B2CCE88D300C51304 /* Assets.xcassets */; };
 		3146648F2CCE88D300C51304 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3146648E2CCE88D300C51304 /* Preview Assets.xcassets */; };
 		31894C3F2CD66E890035B9FF /* HealthDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31894C3E2CD66E880035B9FF /* HealthDataListView.swift */; };
+		3191AE632CD9795A00493A92 /* HealthKitPermissionprimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191AE622CD9795A00493A92 /* HealthKitPermissionprimingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3146648B2CCE88D300C51304 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3146648E2CCE88D300C51304 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31894C3E2CD66E880035B9FF /* HealthDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataListView.swift; sourceTree = "<group>"; };
+		3191AE622CD9795A00493A92 /* HealthKitPermissionprimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitPermissionprimingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				314664872CCE88CF00C51304 /* Step_TrakcerApp.swift */,
 				314664892CCE88CF00C51304 /* DashBoardView.swift */,
+				3191AE622CD9795A00493A92 /* HealthKitPermissionprimingView.swift */,
 				31894C3E2CD66E880035B9FF /* HealthDataListView.swift */,
 				3146648B2CCE88D300C51304 /* Assets.xcassets */,
 				3146648D2CCE88D300C51304 /* Preview Content */,
@@ -143,6 +146,7 @@
 				31894C3F2CD66E890035B9FF /* HealthDataListView.swift in Sources */,
 				3146648A2CCE88CF00C51304 /* DashBoardView.swift in Sources */,
 				314664882CCE88CF00C51304 /* Step_TrakcerApp.swift in Sources */,
+				3191AE632CD9795A00493A92 /* HealthKitPermissionprimingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

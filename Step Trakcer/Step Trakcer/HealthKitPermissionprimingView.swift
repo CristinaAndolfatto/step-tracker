@@ -5,9 +5,14 @@
 //  Created by Cristina Andolfatto on 04/11/24.
 //
 
+import HealthKitUI
 import SwiftUI
 
 struct HealthKitPermissionprimingView: View {
+    
+    @Environment(HealthKitManager.self) private var hkManager
+    @Environment(\.dismiss) private var dismiss
+    @State private var isShowingHealthkitPermission = false
     
     let description =
     """
@@ -36,9 +41,22 @@ You can also add new data to Apple Health from this app. Your data is private an
             .tint(.pink)
         }
         .padding(30)
+        .healthDataAccessRequest(store: hkManager.store,
+                                 shareTypes: hkManager.types,
+                                 readTypes: hkManager.types,
+                                 trigger: isShowingHealthkitPermission) { result in
+            switch result {
+                case .success(_):
+                    dismiss()
+                case .failure(_):
+                    // TODO: handle the error
+                    dismiss()
+            }
+        }
     }
 }
 
 #Preview {
     HealthKitPermissionprimingView()
+        .environment(HealthKitManager())
 }

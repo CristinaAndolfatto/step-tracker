@@ -23,7 +23,9 @@ enum HealthMetricContext: CaseIterable, Identifiable {
 
 
 struct DashBoardView: View {
-    
+    // Access to UserDefaults: here you store simple data (so if a popup appeared, if it is the first launch, preferredTheme color, etc)
+    @AppStorage("hasSeenPermissionPrimingSheet") private var hasSeenPermissionPrimingSheet = false
+    @State private var isShowingPermissionPrimingSheet: Bool = false
     @State private var selectedStat: HealthMetricContext = .step
     var isStepSelected : Bool { selectedStat == .step }
     
@@ -83,6 +85,16 @@ struct DashBoardView: View {
             .navigationDestination(for: HealthMetricContext.self) { metric in
                 HealthDataListView(selectedStat: $selectedStat, metric: metric)
             }
+            .onAppear(perform: {
+                isShowingPermissionPrimingSheet = !hasSeenPermissionPrimingSheet
+            })
+            .sheet(isPresented: $isShowingPermissionPrimingSheet, onDismiss: {
+                // fetch health data
+                
+            },
+                   content: {
+                HealthKitPermissionprimingView(hasSeenPermissionPrimingSheet: $hasSeenPermissionPrimingSheet)
+            })
         }
         .tint(isStepSelected ? .pink : .indigo)
     }
@@ -90,4 +102,5 @@ struct DashBoardView: View {
 
 #Preview {
     DashBoardView()
+        .environment(HealthKitManager())
 }

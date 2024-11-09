@@ -13,6 +13,7 @@ struct HealthKitPermissionprimingView: View {
     @Environment(HealthKitManager.self) private var hkManager
     @Environment(\.dismiss) private var dismiss
     @State private var isShowingHealthkitPermission = false
+    @Binding var hasSeenPermissionPrimingSheet: Bool
     
     let description =
     """
@@ -35,12 +36,16 @@ You can also add new data to Apple Health from this app. Your data is private an
                     .foregroundStyle(.secondary)
             }
             Button("Connect Apple Health") {
-                // TODO: connect to apple health
+                // connect to apple health
+                isShowingHealthkitPermission = true
             }
             .buttonStyle(.borderedProminent)
             .tint(.pink)
         }
         .padding(30)
+        .onAppear(perform: {
+            hasSeenPermissionPrimingSheet = true
+        })
         .healthDataAccessRequest(store: hkManager.store,
                                  shareTypes: hkManager.types,
                                  readTypes: hkManager.types,
@@ -57,6 +62,6 @@ You can also add new data to Apple Health from this app. Your data is private an
 }
 
 #Preview {
-    HealthKitPermissionprimingView()
+    HealthKitPermissionprimingView(hasSeenPermissionPrimingSheet: .constant(true))
         .environment(HealthKitManager())
 }

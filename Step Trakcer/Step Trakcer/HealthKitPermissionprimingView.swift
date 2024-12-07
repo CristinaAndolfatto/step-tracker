@@ -43,9 +43,9 @@ You can also add new data to Apple Health from this app. Your data is private an
             .tint(.pink)
         }
         .padding(30)
-        .onAppear(perform: {
+        .task {
             hasSeenPermissionPrimingSheet = true
-        })
+        }
         .healthDataAccessRequest(store: hkManager.store,
                                  shareTypes: hkManager.types,
                                  readTypes: hkManager.types,
